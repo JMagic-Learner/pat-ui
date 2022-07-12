@@ -33,30 +33,36 @@ exports[`Stepper should match snapshot 1`] = `
       >
         <div>
           <div
-            class="description-area sm"
+            class="description-area Stepper Stepper-sm Stepper-row"
             data-testid="description-area-0"
             id="description-area-0"
           >
-            <div>
+            <div
+              class="secondary-check"
+            >
               <div
-                class="flex-container"
+                class="stepper-content"
               >
-                <svg
-                  class="icon green check"
-                  height="28"
-                  viewBox="0 0 512 512"
+                <div
+                  class="flex-container"
                 >
-                  <path
-                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                    fill="green"
-                  />
-                </svg>
+                  <svg
+                    class="icon green check"
+                    height="28"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                      fill="green"
+                    />
+                  </svg>
+                </div>
+                <p
+                  class="font-variant-main"
+                >
+                   Default array length 3 
+                </p>
               </div>
-              <p
-                class="font-variant-main"
-              >
-                 Default array length 3 
-              </p>
             </div>
             <div
               class="label-container"
@@ -79,29 +85,35 @@ exports[`Stepper should match snapshot 1`] = `
         </div>
         <div>
           <div
-            class="description-area sm"
+            class="description-area Stepper Stepper-sm Stepper-row"
             data-testid="description-area-1"
             id="description-area-1"
           >
-            <div>
+            <div
+              class="secondary-check"
+            >
               <div
-                class="flex-container"
+                class="stepper-content"
               >
-                <svg
-                  class="icon check"
-                  height="28"
-                  viewBox="0 0 512 512"
+                <div
+                  class="flex-container"
                 >
-                  <path
-                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                  />
-                </svg>
+                  <svg
+                    class="icon check"
+                    height="28"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
+                </div>
+                <p
+                  class="font-variant-main"
+                >
+                   Define props in component 
+                </p>
               </div>
-              <p
-                class="font-variant-main"
-              >
-                 Define props in component 
-              </p>
             </div>
             <div
               class="label-container"
@@ -117,29 +129,35 @@ exports[`Stepper should match snapshot 1`] = `
         </div>
         <div>
           <div
-            class="description-area sm"
+            class="description-area Stepper Stepper-sm Stepper-row"
             data-testid="description-area-2"
             id="description-area-2"
           >
-            <div>
+            <div
+              class="secondary-check"
+            >
               <div
-                class="flex-container"
+                class="stepper-content"
               >
-                <svg
-                  class="icon check"
-                  height="28"
-                  viewBox="0 0 512 512"
+                <div
+                  class="flex-container"
                 >
-                  <path
-                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                  />
-                </svg>
+                  <svg
+                    class="icon check"
+                    height="28"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+                    />
+                  </svg>
+                </div>
+                <p
+                  class="font-variant-main"
+                >
+                   Feed an string array 
+                </p>
               </div>
-              <p
-                class="font-variant-main"
-              >
-                 Feed an string array 
-              </p>
             </div>
             <div
               class="label-container"
@@ -153,6 +171,12 @@ exports[`Stepper should match snapshot 1`] = `
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="flex-container"
+        data-testid="non-finish-dialogue"
+      >
+        You are currently on step  1
       </div>
       <div
         class="flex-container"

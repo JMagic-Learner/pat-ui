@@ -169,7 +169,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
 
                                 <div className="label-container" data-testId={`error-check-` + `${index}`}>
                                 {item.label == 'error' ? (
-                                    <p className={`font-variant-secondary red`} > Error </p>
+                                    <p className={`font-variant-secondary error`} > Testing </p>
                                 ) : (
                                     <p className={`font-variant-secondary `}> {item.label} </p>
                                 )}
@@ -217,7 +217,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
 
                                 <div className="label-container" data-testId={`error-check-` + `${index}`}>
                                 {item.label == 'error' ? (
-                                    <p className={`font-variant-secondary red`} > Error </p>
+                                    <p className={`font-variant-secondary error`} > Testing </p>
                                 ) : (
                                     <p className={`font-variant-secondary `}> {item.label} </p>
                                 )}
@@ -237,13 +237,13 @@ export const Stepper: FC<patStepperProps> = (props) => {
              </div>
 
              {Currentindex == renderSteps  ? (
-                                <div className="flex-container">
+                                <div className="flex-container" data-testid='non-finish-dialogue'>
                                      {FinishMessage}
                                 </div>
                                 ) : ( 
-                                    <div className="flex-container">
+                                    <div className="flex-container" data-testid='non-finish-dialogue'>
                                     {DefaultMessage} {Currentindex+1}
-                               </div>
+                                    </div>
                                 )
                                  }
           
@@ -309,7 +309,7 @@ Stepper.defaultProps = {
     expandHeight:'30vh',
     StepperSize: 'sm',
     allowSkip: false,
-    DefaultMessage: `You are currently on step`,
+    DefaultMessage: `You are currently on step `,
     FinishMessage: "Completed all steps",
     buttonTitleNext:"Next",
     buttonTitlePrev:"Back",

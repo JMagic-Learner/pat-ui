@@ -218,8 +218,8 @@ export const SkipStep = () => (
                iconCompleted: <Icon name="check" color="green"/>
                }, 
             ]}
-            buttonTitleNext={"Next"}
-            buttonTitlePrev={"Back"}
+            buttonTitleNext={"Forward"}
+            buttonTitlePrev={"Previous"}
             StepperOrientation={"row"}
             allowSkip={true}
         >
@@ -251,8 +251,8 @@ export const ErrorStep = () => (
                title: "props should have label:`error`",
              description: "",
              label: "error",
-             icon: <Icon name="check"  />,
-             iconCompleted: <Icon name="check" color="green"/>
+             icon: <Icon name="times" color="red"/>,
+             iconCompleted: <Icon name="times" color="red"/>
              }, 
           ]}
           buttonTitleNext={"Continue"}
@@ -406,30 +406,41 @@ export const VerticalStepperFancy = () => (
                     title:  "The Office - Asian Jim 1",
                     description: "Narration: Tell a story. Go chronologically, from start to finish. (See an example.)",
                     label: "Scene 1",
-                    component: <img className="example" src='https://i.imgur.com/vH7yTh2.jpeg'></img>
+                    component: <img className="example" src='https://i.imgur.com/vH7yTh2.jpeg'></img>,
+                    icon: <Icon name="check"  />,
+                   iconCompleted: <Icon name="check" color="green"/>,
                   },
                   {
                     title:   "The Office - Asian Jim 2",
                     description: "Description: Provide specific details about what something looks, smells, tastes, sounds, or feels like. Organize spatially, in order of appearance, or by topic.",
                     label: "Scene 2",
-                    component: <img className="example" src='https://i.imgur.com/KN6aNzr.jpeg'></img> 
+                    component: <img className="example" src='https://i.imgur.com/KN6aNzr.jpeg'></img>,
+                    icon: <Icon name="check"  />,
+                   iconCompleted: <Icon name="check" color="green"/>,
                   },
                   {
                     title:   "The Office - Asian Jim 3",
                     description: "Process: Explain how something works, step by step. Perhaps follow a sequence—first, second, third.",
                     label: "Scene 3",
-                    component: <img className="example" src='https://i.imgur.com/sU87w79.jpeg'></img> 
+                    component: <img className="example" src='https://i.imgur.com/sU87w79.jpeg'></img>,
+                    icon: <Icon name="check"  />,
+                   iconCompleted: <Icon name="check" color="green"/> ,
                   },
                    {
                     title:  "The Office - Asian Jim 4",
                     description: "Classification: Separate into groups or explain the various parts of a topic.",
                     label: "Scene 4",
-                    component: <img className="example" src='https://i.imgur.com/XSqiT6V.jpeg'></img>
+                    component: <img className="example" src='https://i.imgur.com/XSqiT6V.jpeg'></img>,
+                    icon: <Icon name="check"  />,
+                   iconCompleted: <Icon name="check" color="green"/>,
+                   
                   },
             ]}
             buttonTitleNext={"Next"}
             buttonTitlePrev={"Back"}
             StepperOrientation={"vertical"}
+            initialHeight={'25vh'}
+            expandHeight={'33vh'}
             // StepperLinear={'nonlinear'}
             allowSkip={true}
         >

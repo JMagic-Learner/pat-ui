@@ -13,7 +13,6 @@ describe ('Stepper', () => {
 // THE FIRST TEST VERIFIES THE HTML STRUCTURE OF A "ROW" Stepper
     it('should render a default horizontal Stepper', () => {
         const StepperProps : patStepperProps = {
-            // StepperType: 'circle',
             StepperOrientation: 'row',
             buttonTitlePrev: "Example1",
             buttonTitleNext: "Example2",
@@ -35,7 +34,7 @@ describe ('Stepper', () => {
         // Does the description area render, and does it contain a class that represents the size of the stepper
         const checkmaprender = screen.getByTestId('description-area-0')
         expect(checkmaprender).toBeInTheDocument();
-        expect(checkmaprender).toHaveClass('description-area sm')
+        expect(checkmaprender).toHaveClass('description-area Stepper-sm')
 
     //     // LETS TEST PRESENCE FUNCTIONS
     //     // NEXT()
@@ -86,6 +85,7 @@ describe ('Stepper', () => {
         expect(rowelementRenderCheck2).toBeInTheDocument();
         expect(rowelementRenderCheck2).toHaveClass('vertical');
 
+        // Testing to see if map renders the steps.
         const title1 = screen.queryByText('Step 1') as HTMLElement;
         const title2 = screen.queryByText('Step 2') as HTMLElement;
         const title3 = screen.queryByText('Step 3') as HTMLElement;
@@ -102,4 +102,25 @@ describe ('Stepper', () => {
         expect(labelContainer2).toHaveClass('label-container')
         expect(labelContainer2).toContainHTML
     })
+
+
+    it( 'Dialouge display should read on current Step', () => {
+      const StepperProps : patStepperProps = {
+        StepperSize: 'sm',
+        allowSkip: true
+    }
+
+    const MockSkip = jest.fn(x => x + 2);
+    const wrapper = render(<Stepper {...StepperProps}></Stepper>)
+   
+    const SkipFunction = wrapper.getByTestId("button-element-skip")
+    expect(SkipFunction).toBeInTheDocument();
+
+    // CHECK THE DISPLAY TEXT CONTENT
+
+    const InitialHTML = wrapper.getByTestId("non-finish-dialogue")
+    expect(InitialHTML).toBeInTheDocument();
+    expect(screen.getByText("You are currently on step 1")).toBeInTheDocument()
+    
+})
 })
