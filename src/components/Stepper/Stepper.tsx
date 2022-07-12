@@ -22,9 +22,10 @@ export interface IStepperProps {
     className?: string;
     allowSkip?: boolean;
     StepperSize?: StepperSize;
-    // StepperType?: StepperType;
-    // StepperLinear?: StepperLinear;
+    DefaultMessage?: any;
     FinishMessage?: any;
+    initialHeight?: string;
+    expandHeight?: string;
     StepperOrientation: StepperOrientaion;
     StepperElements?: StepperObject[];
     buttonTitleNext?: string;
@@ -38,19 +39,22 @@ export const Stepper: FC<patStepperProps> = (props) => {
     const {
         className,
         StepperSize,
+        DefaultMessage,
+        initialHeight,
+        expandHeight,
         FinishMessage,
         StepperElements,
         StepperOrientation,
         buttonTitleNext,
         buttonTitlePrev,
-        // StepperLinear,
         allowSkip,
         ...rest
     } = props;
 
 
     let styleClasses = classNames('Stepper', {
-        [`Stepper-${StepperSize}`]: !!StepperSize
+        [`Stepper-${StepperSize}`]: !!StepperSize,
+        [`Stepper-${StepperOrientation}`]: !!StepperOrientation
     });
 
     if (className) {
@@ -62,15 +66,6 @@ export const Stepper: FC<patStepperProps> = (props) => {
     let totalSteps = StepperElements!.length
     let renderSteps = totalSteps - 1
 
-        useEffect(() => {
-
-        if (StepperOrientation === 'vertical') {
-            let currentTarget = 'description-area-' + `${Currentindex}`
-            let currentElement = document.getElementById(currentTarget)
-            currentElement!.style.height="20vh"
-        }
-        
-    }, []);
 
     useEffect(() => {  
         if (Currentindex > 0) {
@@ -84,7 +79,6 @@ export const Stepper: FC<patStepperProps> = (props) => {
 
 
     function next(value:number) {
-        // let direction='next'
         if (Currentindex >= renderSteps) {
             setCurrentIndex(renderSteps)
         } else { 
@@ -93,7 +87,6 @@ export const Stepper: FC<patStepperProps> = (props) => {
     }
 
     function skip(value:number) {
-        
         if (Currentindex >= renderSteps) {
             setCurrentIndex(renderSteps)
         } else if (Currentindex === renderSteps-1){ 
@@ -104,7 +97,6 @@ export const Stepper: FC<patStepperProps> = (props) => {
     }
 
     function prev(value:number) {
-        let direction='back'
         if (Currentindex <= 0) {
             setCurrentIndex(0)
         } else {
@@ -137,7 +129,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
                     <div>
                         {StepperOrientation == 'vertical' &&
                         <div className={"description-area " + styleClasses }
-                        style={{height: `${index === Currentindex ? '30vh' : '20vh'}` }}
+                        style={{height: `${index === Currentindex ? expandHeight : initialHeight}` }}
                         id={"description-area-" + index } 
                         data-testid={`description-area-` + `${index}`}>
                                 {index === Currentindex ? (
@@ -214,10 +206,15 @@ export const Stepper: FC<patStepperProps> = (props) => {
              })}
              </div>
 
-             {Currentindex == renderSteps  &&
+             {Currentindex == renderSteps  ? (
                                 <div className="flex-container">
                                      {FinishMessage}
                                 </div>
+                                ) : ( 
+                                    <div className="flex-container">
+                                    {DefaultMessage} {Currentindex+1}
+                               </div>
+                                )
                                  }
           
 
@@ -278,8 +275,11 @@ export const Stepper: FC<patStepperProps> = (props) => {
 Stepper.defaultProps = {
     // StepperType: 'circle',
     StepperOrientation: 'row',
+    initialHeight:'20vh',
+    expandHeight:'30vh',
     StepperSize: 'sm',
     allowSkip: false,
+    DefaultMessage: `You are currently on step`,
     FinishMessage: "Completed all steps",
     buttonTitleNext:"Next",
     buttonTitlePrev:"Back",
