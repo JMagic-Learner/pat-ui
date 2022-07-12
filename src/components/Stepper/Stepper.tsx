@@ -67,6 +67,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
     let renderSteps = totalSteps - 1
 
 
+
     useEffect(() => {  
         if (Currentindex > 0) {
         setInitialize(false) 
@@ -132,7 +133,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
                         style={{height: `${index === Currentindex ? expandHeight : initialHeight}` }}
                         id={"description-area-" + index } 
                         data-testid={`description-area-` + `${index}`}>
-                                {index === Currentindex ? (
+                                {index <= Currentindex ? (
                                     <div>
                                      <div className="flex-container">
                                         {item.iconCompleted}
@@ -169,7 +170,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
                         id={"description-area-" + index } 
                         data-testid={`description-area-` + `${index}`}>
                             
-                                {index === Currentindex ? (
+                                {index <= Currentindex ? (
                                     <div>
                                      <div className="flex-container">
                                         {item.iconCompleted}
