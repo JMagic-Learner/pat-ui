@@ -6,7 +6,14 @@ import Button from '../Button'
 
 describe ('Stepper', () => {
   it('should match snapshot', () => {
-    const { asFragment } = render(<Stepper> Snapshot Stepper </Stepper>);
+    const StepperProps : patStepperProps = {
+      StepperOrientation: 'row',
+      buttonTitlePrev: "Example1",
+      buttonTitleNext: "Example2",
+      StepperSize: 'sm',
+      allowSkip: false,
+  }
+    const { asFragment } = render(<Stepper {...StepperProps} > Snapshot Stepper </Stepper>);
     expect(asFragment()).toMatchSnapshot();
   });
 // THE FOLLOWING 2 TESTS VERIFIES THE HTML STRUCTURE OF Stepper
@@ -106,6 +113,7 @@ describe ('Stepper', () => {
 
     it( 'Dialouge display should read on current Step', () => {
       const StepperProps : patStepperProps = {
+        StepperOrientation: 'row',
         StepperSize: 'sm',
         allowSkip: true
     }

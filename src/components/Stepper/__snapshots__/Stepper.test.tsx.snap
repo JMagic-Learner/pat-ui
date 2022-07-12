@@ -182,17 +182,17 @@ exports[`Stepper should match snapshot 1`] = `
         class="flex-container"
       >
         <button
-          class="btn btn-primary btn-sm Back"
+          class="btn btn-primary btn-sm Example1"
           data-testid="button-element-prev"
           disabled=""
         >
-          Back
+          Example1
         </button>
         <button
-          class="btn btn-primary btn-sm Next"
+          class="btn btn-primary btn-sm Example2"
           data-testid="button-element-next"
         >
-          Next
+          Example2
         </button>
       </div>
     </div>
