@@ -63,6 +63,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
 
     const [Currentindex, setCurrentIndex] = useState(0)
     const [Initialize, setInitialize] = useState(true)
+    const [SkipIndexArray, setSkipIndexArray] = useState<number[]>([])
     let totalSteps = StepperElements!.length
     let renderSteps = totalSteps - 1
 
@@ -84,6 +85,10 @@ export const Stepper: FC<patStepperProps> = (props) => {
             setCurrentIndex(renderSteps)
         } else { 
             setCurrentIndex(Currentindex+value)
+             if(SkipIndexArray.includes(Currentindex+value)) {
+                let removeSkip = SkipIndexArray.filter(function(element){return(element != Currentindex+value)})
+                setSkipIndexArray( removeSkip )
+            }
         }
     }
 
@@ -94,6 +99,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
            console.log("you cannot skip past")
         } else {
             setCurrentIndex(Currentindex+value)
+            setSkipIndexArray( arr => [...arr, Currentindex+1])
         }
     }
 
@@ -133,19 +139,31 @@ export const Stepper: FC<patStepperProps> = (props) => {
                         style={{height: `${index === Currentindex ? expandHeight : initialHeight}` }}
                         id={"description-area-" + index } 
                         data-testid={`description-area-` + `${index}`}>
-                                {index <= Currentindex ? (
-                                    <div>
-                                     <div className="flex-container">
-                                        {item.iconCompleted}
-                                     </div>
-                                     <p className={`font-variant-main`}> {item.title} </p>
-                                     </div>
-                                ): (
-                                    <div>
-                                    <div className="flex-container">
-                                        {item.icon}
-                                     </div>
-                                    <p className="font-variant-main"> {item.title} </p>
+
+                                {SkipIndexArray.includes(index) == true? (
+                                    <div className="stepper-content">
+                                        <div className="flex-container">
+                                            {item.icon}
+                                        </div>
+                                        <p className="font-variant-main"> {item.title} </p>
+                                    </div>
+                                ) : (
+                                    <div className="secondary-check">
+                                        {index <= Currentindex ? (
+                                        <div className="stepper-content">
+                                            <div className="flex-container">
+                                                {item.iconCompleted}
+                                            </div>
+                                            <p className={`font-variant-main`}> {item.title} </p>
+                                        </div>
+                                        ): (
+                                            <div className="stepper-content">
+                                            <div className="flex-container">
+                                                {item.icon}
+                                            </div>
+                                            <p className="font-variant-main"> {item.title} </p>
+                                        </div>
+                                        )}
                                     </div>
                                 )}
 
@@ -170,19 +188,30 @@ export const Stepper: FC<patStepperProps> = (props) => {
                         id={"description-area-" + index } 
                         data-testid={`description-area-` + `${index}`}>
                             
-                                {index <= Currentindex ? (
-                                    <div>
-                                     <div className="flex-container">
-                                        {item.iconCompleted}
-                                     </div>
-                                     <p className={`font-variant-main`}> {item.title} </p>
-                                     </div>
-                                ): (
-                                    <div>
-                                    <div className="flex-container">
-                                        {item.icon}
-                                     </div>
-                                    <p className="font-variant-main"> {item.title} </p>
+                            {SkipIndexArray.includes(index) == true? (
+                                    <div className="stepper-content">
+                                        <div className="flex-container">
+                                            {item.icon}
+                                        </div>
+                                        <p className="font-variant-main"> {item.title} </p>
+                                    </div>
+                                ) : (
+                                    <div className="secondary-check">
+                                        {index <= Currentindex ? (
+                                        <div className="stepper-content">
+                                            <div className="flex-container">
+                                                {item.iconCompleted}
+                                            </div>
+                                            <p className={`font-variant-main`}> {item.title} </p>
+                                        </div>
+                                        ): (
+                                            <div className="stepper-content">
+                                            <div className="flex-container">
+                                                {item.icon}
+                                            </div>
+                                            <p className="font-variant-main"> {item.title} </p>
+                                        </div>
+                                        )}
                                     </div>
                                 )}
 
