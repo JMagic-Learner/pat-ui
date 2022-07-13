@@ -352,7 +352,7 @@ export const ManualSelect = () => (
           buttonTitleNext={"Next"}
           buttonTitlePrev={"Back"}
           StepperOrientation={"row"}
-          // StepperLinear="nonlinear"
+          selectOption={true}
           allowSkip={true}
       >
       </Stepper>
@@ -441,7 +441,7 @@ export const VerticalStepperFancy = () => (
             StepperOrientation={"vertical"}
             initialHeight={'25vh'}
             expandHeight={'33vh'}
-            // StepperLinear={'nonlinear'}
+            selectOption={true}
             allowSkip={true}
         >
       </Stepper>

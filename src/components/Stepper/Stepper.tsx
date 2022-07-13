@@ -6,7 +6,6 @@ import Icon from '../Icon/Icon';
 
 export type StepperSize = 'lg' | 'md' | 'sm'
 export type StepperType = "circle" | "square" | "progress"
-export type StepperLinear = "linear" | "nonlinear"
 export type StepperOrientaion = "row" | "vertical"
 
 export type StepperObject = {
@@ -30,6 +29,7 @@ export interface IStepperProps {
     StepperElements?: StepperObject[];
     buttonTitleNext?: string;
     buttonTitlePrev?: string;
+    selectOption?:boolean,
 }
 
 export type patStepperProps = IStepperProps;
@@ -48,6 +48,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
         buttonTitleNext,
         buttonTitlePrev,
         allowSkip,
+        selectOption,
         ...rest
     } = props;
 
@@ -91,6 +92,24 @@ export const Stepper: FC<patStepperProps> = (props) => {
             }
         }
     }
+
+    const select = (value:number) => {
+        setInitialize(false)
+        if (selectOption) {
+            if (SkipIndexArray.includes(value) == true) {
+                let removeSkip = SkipIndexArray.filter(function(element){return(element != value)})
+                setSkipIndexArray( removeSkip )
+                setCurrentIndex(value)
+            } else {
+                setCurrentIndex(value)
+            }
+        }
+
+        
+
+       
+        
+    }  
 
     function skip(value:number) {
         if (Currentindex >= renderSteps) {
@@ -138,7 +157,8 @@ export const Stepper: FC<patStepperProps> = (props) => {
                         <div className={"description-area " + styleClasses }
                         style={{height: `${index === Currentindex ? expandHeight : initialHeight}` }}
                         id={"description-area-" + index } 
-                        data-testid={`description-area-` + `${index}`}>
+                        data-testid={`description-area-` + `${index}`}
+                        onClick={() => select(index)}>
 
                                 {SkipIndexArray.includes(index) == true? (
                                     <div className="stepper-content">
@@ -167,7 +187,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
                                     </div>
                                 )}
 
-                                <div className="label-container" data-testId={`error-check-` + `${index}`}>
+                                <div className="label-container" data-testid={`error-check-` + `${index}`}>
                                 {item.label == 'error' ? (
                                     <p className={`font-variant-secondary error`} > Testing </p>
                                 ) : (
@@ -186,7 +206,8 @@ export const Stepper: FC<patStepperProps> = (props) => {
                          {StepperOrientation == 'row' &&
                         <div className={"description-area " + styleClasses }
                         id={"description-area-" + index } 
-                        data-testid={`description-area-` + `${index}`}>
+                        data-testid={`description-area-` + `${index}`}
+                        onClick={() => select(index)}>
                             
                             {SkipIndexArray.includes(index) == true? (
                                     <div className="stepper-content">
@@ -215,7 +236,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
                                     </div>
                                 )}
 
-                                <div className="label-container" data-testId={`error-check-` + `${index}`}>
+                                <div className="label-container" data-testid={`error-check-` + `${index}`}>
                                 {item.label == 'error' ? (
                                     <p className={`font-variant-secondary error`} > Testing </p>
                                 ) : (
@@ -303,7 +324,6 @@ export const Stepper: FC<patStepperProps> = (props) => {
 }
 
 Stepper.defaultProps = {
-    // StepperType: 'circle',
     StepperOrientation: 'row',
     initialHeight:'20vh',
     expandHeight:'30vh',

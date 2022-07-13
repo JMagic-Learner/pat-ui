@@ -131,7 +131,9 @@ describe ('Stepper', () => {
     expect(screen.getByText("You are currently on step 1")).toHaveClass("flex-container")
     fireEvent.click(screen.getByText('Next'))
     expect(screen.getByText("You are currently on step 2")).toBeInTheDocument()
-   
-    
+    fireEvent.click(screen.getByText('Back'))
+    expect(screen.getByText("You are currently on step 1")).toBeInTheDocument()
+    fireEvent.click(screen.getByText('Skip Next'))
+    expect(screen.getByText("Completed all steps")).toBeInTheDocument()
 })
 })
