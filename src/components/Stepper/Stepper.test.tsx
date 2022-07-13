@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import Stepper, { patStepperProps } from './Stepper';
-import Button from '../Button'
+import shallow from 'enzyme'
 // import {renderer} from 'react-test-renderer'; // ES6
 
 describe ('Stepper', () => {
@@ -115,10 +115,10 @@ describe ('Stepper', () => {
       const StepperProps : patStepperProps = {
         StepperOrientation: 'row',
         StepperSize: 'sm',
-        allowSkip: true
+        allowSkip: true,
     }
 
-    const MockSkip = jest.fn(x => x + 2);
+   
     const wrapper = render(<Stepper {...StepperProps}></Stepper>)
    
     const SkipFunction = wrapper.getByTestId("button-element-skip")
@@ -128,7 +128,10 @@ describe ('Stepper', () => {
 
     const InitialHTML = wrapper.getByTestId("non-finish-dialogue")
     expect(InitialHTML).toBeInTheDocument();
-    expect(screen.getByText("You are currently on step 1")).toBeInTheDocument()
+    expect(screen.getByText("You are currently on step 1")).toHaveClass("flex-container")
+    fireEvent.click(screen.getByText('Next'))
+    expect(screen.getByText("You are currently on step 2")).toBeInTheDocument()
+   
     
 })
 })
