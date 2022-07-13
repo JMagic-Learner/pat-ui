@@ -132,7 +132,7 @@ export const Stepper: FC<patStepperProps> = (props) => {
 
     let Stepper =
         <div className="flex-container">
-        <div className={"center-main-body " + `${StepperOrientation}`} data-testid="center-main-body">
+        <div className={`center-main-body `+ `  ${StepperOrientation}`} data-testid="center-main-body">
          {StepperOrientation != 'vertical' &&
             <div className="component-display" data-testid="element-render-1" >
                 {StepperElements!.map(function (item: any, index: number) {
